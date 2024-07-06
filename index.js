@@ -470,6 +470,7 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
   try {
     // Access uploaded file details through req.file
     const fileurl ="/opt/render/project/src/" + req.file.path;
+    fileurl = fileurl.replace('/uploads', '');
     console.log('File stored at:', fileurl);
     const { title, description } = req.body;
     console.log('Title:', title);
