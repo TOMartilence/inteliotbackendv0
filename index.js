@@ -505,6 +505,7 @@ app.post('/api/findpdf', async (req, res) => {
 
       const filePath = path.join(__dirname, fileName);
       console.log("Full file path:", filePath);
+      console.log('Current working directory:', process.cwd());
 
       if (fs.existsSync(filePath)) {
           const fileContent = fs.readFileSync(filePath);
