@@ -470,7 +470,6 @@ app.post('/api/upload', upload.single('file'), async (req, res) => {
   try {
     // Access uploaded file details through req.file
     const fileurl ="/opt/render/project/src/" + req.file.path;
-    fileurl = fileurl.replace('/uploads', '');
     console.log('File stored at:', fileurl);
     const { title, description } = req.body;
     console.log('Title:', title);
@@ -505,11 +504,11 @@ app.post('/api/findpdf', async (req, res) => {
       }
 
       const filePath = path.join(__dirname, fileName);
-      console.log("Full file path:", filePath);
+      console.log("Full file path:", fileName);
       console.log('Current working directory:', process.cwd());
 
-      if (fs.existsSync(filePath)) {
-          const fileContent = fs.readFileSync(filePath);
+      if (fs.existsSync(fileName)) {
+          const fileContent = fs.readFileSync(fileName);
 
           res.setHeader('Content-Type', 'application/pdf');
           res.setHeader('Content-Disposition', 'inline; filename=file.pdf');
