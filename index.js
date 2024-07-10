@@ -509,7 +509,7 @@ app.post('/api/findpdf', async (req, res) => {
 
       if (fs.existsSync(fileName)) {
           const fileContent = fs.readFileSync(fileName);
-
+          console.log(`FilePath : ${fileName}`);
           res.setHeader('Content-Type', 'application/pdf');
           res.setHeader('Content-Disposition', 'inline; filename=file.pdf');
 
