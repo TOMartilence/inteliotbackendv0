@@ -515,7 +515,7 @@ app.post('/api/findpdf', async (req, res) => {
 
           res.send(fileContent);
       } else {
-          console.error('File not found:', filePath);
+          console.error('File not found:', fileName);
           res.status(404).json({ error: 'File not found' });
       }
   } catch (error) {
