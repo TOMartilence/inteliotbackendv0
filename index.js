@@ -511,6 +511,18 @@ app.get("/api/getResource",async(req,res)=>{
     res.send({message: "Failed to load resource"})
   }
 })
+
+app.get("/api/iort",async(req,res)=>{
+  try {
+    res.status(200).json(global.students);
+    console.log(global.students);
+    
+
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch students data", error });
+
+  }
+})
 app.post('/api/findpdf', async (req, res) => {
   try {
       let fileName = req.body.fileName;

@@ -16,6 +16,7 @@ const dbInitialise = async () => {
     const fetchedDateEight = mongoose.connection.db.collection("Timeline")
     const fetchedDateNine = mongoose.connection.db.collection("Video");
     const fetchedDataTen = mongoose.connection.db.collection("Resource");
+    const fetchedDataEleven = mongoose.connection.db.collection("Students")
     const video = await fetchedDateNine.find({}).toArray();
     const imagescroll = await fetchedDatazero.find({}).toArray();
     const projects = await fetchedDataone.find({}).toArray();
@@ -27,6 +28,7 @@ const dbInitialise = async () => {
     const faq = await fetchedDataseven.find({}).toArray();
     const timeline = await fetchedDateEight.find({}).toArray();
     const resource = await fetchedDataTen.find({}).toArray();
+    const students = await fetchedDataEleven.find({}).toArray();
     global.imagescroll = imagescroll;
     global.projects = projects;
     global.gallery = gallery;
@@ -38,6 +40,8 @@ const dbInitialise = async () => {
     global.video = video;
     global.timeline = timeline
     global.resource = resource
+    global.students = students
+    
   } catch (error) {
     console.log(`Failed to connect to database: ${error}`);
   }
