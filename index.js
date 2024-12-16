@@ -19,6 +19,7 @@ const Faq = require("./models/Faqmodel")
 const Video = require("./models/VideoModel");
 const Resource = require("./models/Resource")
 const Timeline = require("./models/Timelinemodel")
+const Student = require("./models/StudentModel")
 const app = express();
 const port = 5000;
 
@@ -464,6 +465,21 @@ app.post("/api/addYtvideo",async(req,res)=>{
     res.send({message:"New video added succesfully"})
   } catch (error) {
     res.send({message : "Couldnt do it"})
+  }
+})
+
+app.post("/api/studentRegister",async(req,res)=>{
+  try {
+    const {name,roll,year,dept,team,phone} = req.body;
+    
+    const student = new Student({
+      name,roll,year,dept,team,phone
+    })
+
+    await student.save();
+    res.send({message : "Registration Succesful"});
+  } catch (error) {
+    res.send({message:"Server down please try again later"});
   }
 })
 app.post('/api/upload', upload.single('file'), async (req, res) => {
