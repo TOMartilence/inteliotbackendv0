@@ -470,10 +470,10 @@ app.post("/api/addYtvideo",async(req,res)=>{
 
 app.post("/api/studentRegister",async(req,res)=>{
   try {
-    const {name,roll,year,dept,team,phone} = req.body;
+    const {name,roll,year,dept,team,phoneNumber} = req.body;
     
     const student = new Student({
-      name,roll,year,dept,team,phone
+      name,roll,year,dept,team,phoneNumber
     })
 
     await student.save();

@@ -11,7 +11,7 @@ const studentSchema = new mongoose.Schema(
     year : String,
     dept : String,
     team : String,
-    phone : String
+    phoneNumber : String
   },
   { collection: "Students" }
 );
